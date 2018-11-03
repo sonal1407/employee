@@ -8,10 +8,7 @@ import { CoreModule } from "./core/core.module";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryWebApiService } from "./in-memory-web-api.service";
-import { EmployeeService } from "./employee/employee.service";
-
-
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -21,10 +18,10 @@ import { EmployeeService } from "./employee/employee.service";
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
-  
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryWebApiService)
+    NgbModule.forRoot(),
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryWebApiService)
   ],
-  providers: [EmployeeService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

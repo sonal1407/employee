@@ -8,6 +8,10 @@ import { EmployeeModel } from "../../employee-model";
   styleUrls: ["./view-employee-details.component.css"]
 })
 export class ViewEmployeeDetailsComponent implements OnInit {
+  model;
+  /**
+   * it contain all the data of employee
+   */
   public employeeList: EmployeeModel[];
   constructor(private employeeService: EmployeeService) {
     this.employeeList = [];
@@ -30,8 +34,7 @@ export class ViewEmployeeDetailsComponent implements OnInit {
    */
   onDeleteClick(id) {
     this.employeeService.deleteEmployee(id).subscribe(data => {
-     // this.employeeList = data;
-     this.getEmployeeList()
+          this.getEmployeeList()
       console.log(this.employeeList);
     });
   }

@@ -20,7 +20,9 @@
     required</div>
   <br><br>
   <label>JoiningDate</label>
-  <input type="date" placeholder="joiningDate" formControlName="joiningDate" required>
+
+  <input type="text" ngbDatepicker #d="ngbDatepicker" placeholder="joiningDate" formControlName="joiningDate" required />
+  <button (click)="d.toggle()" type="button">Date</button>
   <div *ngIf="joiningDate.invalid && (joiningDate.dirty || joiningDate.touched)" class="danger">
     required</div>
   <br><br>

@@ -5,6 +5,7 @@ import { Component, OnInit } from "@angular/core";
 import { EmployeeService } from "../employee.service";
 import { EmployeeModel } from "../../employee-model";
 import { FormBuilder, Validators } from "@angular/forms";
+import { NgbDateStruct, NgbCalendar } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "app-add-employee-details",
@@ -12,12 +13,15 @@ import { FormBuilder, Validators } from "@angular/forms";
   styleUrls: ["./add-employee-details.component.css"]
 })
 export class AddEmployeeDetailsComponent implements OnInit {
-  /**
+ 
+
+  public model: NgbDateStruct;
+  public date: { year: number; month: number };
+   /**
    *
    * store the details of the employee list
    *
    */
-
   public employeeData: EmployeeModel[];
   public addEmployeeData: EmployeeModel[];
 
@@ -28,22 +32,28 @@ export class AddEmployeeDetailsComponent implements OnInit {
     this.employeeData = [];
     this.addEmployeeData = [];
   }
+  /**
+   * forms control
+   */
   employeeForm = this.fb.group({
     name: ["", [Validators.required]],
     age: ["", [Validators.required]],
     designation: ["", [Validators.required]],
     joiningDate: ["", [Validators.required]]
   });
-  get name() {
+  /**
+   * for validation
+   */
+  public get name() {
     return this.employeeForm.get("name");
   }
-  get age() {
+  public get age() {
     return this.employeeForm.get("age");
   }
-  get designation() {
+  public get designation() {
     return this.employeeForm.get("designation");
   }
-  get joiningDate() {
+  public get joiningDate() {
     return this.employeeForm.get("joiningDate");
   }
   ngOnInit() {
@@ -56,9 +66,10 @@ export class AddEmployeeDetailsComponent implements OnInit {
     });
   }
 
-  onSubmit(data) {
+  public onSubmit(data) {
     this.employeeService.addEmployeeDetail(data).subscribe(data => {
       this.addEmployeeData = data;
+    
       console.log(this.addEmployeeData);
     });
   }

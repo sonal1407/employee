@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { EmployeeModule } from '../employee/employee.module';
+import { EmployeeService } from '../employee/employee.service';
 
 
 
@@ -14,6 +15,6 @@ import { EmployeeModule } from '../employee/employee.module';
   ],
   declarations: [SidebarComponent],
   exports:[SidebarComponent],
-  providers:[]
+  providers:[EmployeeService]
 })
 export class CoreModule { }

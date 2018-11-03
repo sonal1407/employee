@@ -12,14 +12,14 @@ export class InMemoryWebApiService implements InMemoryDbService {
         name: "sonal",
         age: 23,
         designation: "TL",
-        joiningDate: new Date("09/10/1995")
+        joiningDate: "09/10/1995"
       },
       {
         id: 2,
         name: "nikul",
         age: 23,
         designation: "Officer",
-        joiningDate: new Date("09/10/1995")
+        joiningDate: "09/10/1995"
       }
     ];
     return { employeeData };
