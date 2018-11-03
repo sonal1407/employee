@@ -1,0 +1,22 @@
+<h1>EmployeeForm</h1>
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm.value)"><br>
+  <label>Name</label>
+  <input type="text" placeholder="name" formControlName="name" required>
+  <div *ngIf="employeeForm.get('name').hasError('required') && employeeForm.get('name').touched">
+    name is required
+  </div>
+  <br><br>
+  <label>Age</label>
+  <input type="text" placeholder="age" formControlName="age" required><br><br>
+  <label>Designation</label>
+  <select formControlName="designation" required>
+    <option>select</option>
+    <option>PM</option>
+    <option>HR</option>
+    <option>TL</option>
+  </select><br><br>
+  <label>JoiningDate</label>
+  <input type="date" placeholder="joiningDate" formControlName="joiningDate" required><br><br>
+
+  <input type="submit" [disabled]="!employeeForm.valid"><br>
+</form>

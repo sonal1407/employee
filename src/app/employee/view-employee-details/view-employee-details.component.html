@@ -1,0 +1,23 @@
+
+
+<h1>Employee Details</h1>
+<table style="    margin: 8%;
+padding-left: 20%;">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Designation</th>
+      <th>joiningDate</th>
+    </tr>
+    
+    <tr *ngFor="let list of employeeList;let i=index;">
+      <td>{{list.id}}</td>
+      <td>{{list.name}}</td>
+      <td>{{list.age}}</td>
+      <td>{{list.designation}}</td>
+      <td>{{list.joiningDate}}</td>
+      <td><button (click)="onDeleteClick(i)">Delete</button></td>
+    </tr>
+  </table>
+  <!-- <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker> -->
