@@ -16,16 +16,23 @@ export class ViewEmployeeDetailsComponent implements OnInit {
   ngOnInit() {
     this.getEmployeeList();
   }
+  /**
+   * get the List of employee
+   */
   public getEmployeeList() {
     this.employeeService.getEmployeeDetail().subscribe(data => {
       this.employeeList = data;
       console.log(this.employeeList);
     });
   }
+  /**
+   * delete the data of the   employee
+   */
   onDeleteClick(id) {
-    this.employeeList.pop();
-    if(this.employeeList.length == 0){
-      alert("No employee found ");
-    }
+    this.employeeService.deleteEmployee(id).subscribe(data => {
+     // this.employeeList = data;
+     this.getEmployeeList()
+      console.log(this.employeeList);
+    });
   }
 }

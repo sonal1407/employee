@@ -23,4 +23,11 @@ export class EmployeeService {
   public addEmployeeDetail(id): Observable<EmployeeModel[]> {
     return this.http.post<EmployeeModel[]>(this.employeeUrl, id);
   }
+  /**
+   * delete the record of the user
+   */
+  public deleteEmployee(id): Observable<EmployeeModel[]> {
+    return this.http.delete<EmployeeModel[]>(this.employeeUrl+"/"+id);
+    // return this.http.delete()
+  }
 }

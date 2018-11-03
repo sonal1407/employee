@@ -34,6 +34,18 @@ export class AddEmployeeDetailsComponent implements OnInit {
     designation: ["", [Validators.required]],
     joiningDate: ["", [Validators.required]]
   });
+  get name() {
+    return this.employeeForm.get("name");
+  }
+  get age() {
+    return this.employeeForm.get("age");
+  }
+  get designation() {
+    return this.employeeForm.get("designation");
+  }
+  get joiningDate() {
+    return this.employeeForm.get("joiningDate");
+  }
   ngOnInit() {
     this.getEmployeeList();
   }
