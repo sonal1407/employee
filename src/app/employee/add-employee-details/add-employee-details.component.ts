@@ -13,11 +13,9 @@ import { NgbDateStruct, NgbCalendar } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ["./add-employee-details.component.css"]
 })
 export class AddEmployeeDetailsComponent implements OnInit {
- 
-
   public model: NgbDateStruct;
   public date: { year: number; month: number };
-   /**
+  /**
    *
    * store the details of the employee list
    *
@@ -67,9 +65,19 @@ export class AddEmployeeDetailsComponent implements OnInit {
   }
 
   public onSubmit(data) {
+    let dateChange =
+      data.joiningDate.day +
+      "/" +
+      data.joiningDate.month +
+      "/" +
+      data.joiningDate.year;
+
+    console.log(dateChange);
+
+    data.joiningDate = dateChange;
+
     this.employeeService.addEmployeeDetail(data).subscribe(data => {
       this.addEmployeeData = data;
-    
       console.log(this.addEmployeeData);
     });
   }
