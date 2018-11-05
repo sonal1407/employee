@@ -11,5 +11,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   imports: [CommonModule, EmployeeRoutingModule, ReactiveFormsModule,FormsModule,NgbModule],
   declarations: [AddEmployeeDetailsComponent, ViewEmployeeDetailsComponent]
+  
 })
 export class EmployeeModule {}

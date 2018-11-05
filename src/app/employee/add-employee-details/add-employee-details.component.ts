@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
 import { EmployeeService } from "../employee.service";
 import { EmployeeModel } from "../../employee-model";
 import { FormBuilder, Validators } from "@angular/forms";
-import { NgbDateStruct, NgbCalendar } from "@ng-bootstrap/ng-bootstrap";
+
 
 @Component({
   selector: "app-add-employee-details",
@@ -13,14 +13,15 @@ import { NgbDateStruct, NgbCalendar } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ["./add-employee-details.component.css"]
 })
 export class AddEmployeeDetailsComponent implements OnInit {
-  public model: NgbDateStruct;
-  public date: { year: number; month: number };
   /**
    *
    * store the details of the employee list
    *
    */
   public employeeData: EmployeeModel[];
+  /**
+   * store th value of the server data of the employee
+   */
   public addEmployeeData: EmployeeModel[];
 
   constructor(
@@ -57,28 +58,34 @@ export class AddEmployeeDetailsComponent implements OnInit {
   ngOnInit() {
     this.getEmployeeList();
   }
-  public getEmployeeList() {
+  public getEmployeeList(): void {
     this.employeeService.getEmployeeDetail().subscribe(data => {
       this.employeeData = data;
       console.log(this.employeeData);
     });
   }
-
+  /**
+   *  add the data of the employee into the the db.
+   */
   public onSubmit(data) {
-    let dateChange =
+    /**
+     * change the date format;
+     */
+    let dateFormatChange =
       data.joiningDate.day +
       "/" +
       data.joiningDate.month +
       "/" +
       data.joiningDate.year;
-
-    console.log(dateChange);
-
-    data.joiningDate = dateChange;
+    /**
+     * add the formatted value of the date.
+     */
+    data.joiningDate = dateFormatChange;
 
     this.employeeService.addEmployeeDetail(data).subscribe(data => {
       this.addEmployeeData = data;
       console.log(this.addEmployeeData);
+      alert("data added successfully");
     });
   }
 }

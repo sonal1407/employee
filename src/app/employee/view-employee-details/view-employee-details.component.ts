@@ -30,7 +30,7 @@ export class ViewEmployeeDetailsComponent implements OnInit {
     });
   }
   /**
-   * delete the data of the   employee
+   * delete the data of the employee
    */
   onDeleteClick(id) {
     this.employeeService.deleteEmployee(id).subscribe(data => {

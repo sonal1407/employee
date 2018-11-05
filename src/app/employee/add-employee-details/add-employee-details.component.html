@@ -6,12 +6,12 @@
     required</div>
   <br><br>
   <label>Age</label>
-  <input type="text" placeholder="age" formControlName="age" required>
+  <input type="number" placeholder="age" formControlName="age" required>
   <div *ngIf="age.invalid && (age.dirty || age.touched)" class="danger">
     required</div><br><br>
   <label>Designation</label>
   <select formControlName="designation" required>
-    <option>select</option>
+
     <option>PM</option>
     <option>HR</option>
     <option>TL</option>
@@ -27,5 +27,5 @@
     required</div>
   <br><br>
 
-  <input type="submit" [disabled]="!employeeForm.valid"><br>
+  <input type="submit" [disabled]="!employeeForm.valid" value="submit"><br>
 </form>
